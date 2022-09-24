@@ -1,7 +1,7 @@
 resource "aws_security_group" "security-group" {
   name = var.secgroupname
   description = var.secgroupname
-  vpc_id = var.vpc
+  vpc_id = var.vpc_id //"${aws_vpc.prod-vpc.id}"
 
   // To Allow SSH Transport
   ingress {
@@ -25,6 +25,5 @@ resource "aws_security_group" "security-group" {
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
   }
-
-
 }
+

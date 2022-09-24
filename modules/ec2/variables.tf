@@ -10,7 +10,7 @@ variable "ami" {
   default =  "ami-0f9fc25dd2506cf6d"
 }
 variable "key_name" {
-   default = "Stalin-Devops"
+   default = "rtp-devops"
 }
 
 variable "security_groups" {
@@ -19,4 +19,8 @@ variable "security_groups" {
 
 variable "vpc_security_group_ids" {
   default = ["valaxy-sg-rtp"]
+}
+
+variable "subnet_id" {
+  type = string
 }
