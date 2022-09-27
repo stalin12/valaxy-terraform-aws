@@ -19,6 +19,14 @@ resource "aws_security_group" "security-group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  // To Allow Port 4000 Transport
+  ingress {
+    from_port = 4000
+    protocol = "tcp"
+    to_port = 4000
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port       = 0
     to_port         = 0

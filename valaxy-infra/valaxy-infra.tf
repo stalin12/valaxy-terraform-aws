@@ -4,6 +4,7 @@ module "myprovider"  {
 
 module "vpc-module" {
   source = "../modules/vpc"
+  subnet_id = module.my-subnet.public-subnet
 }
 
 module "my-subnet" {
