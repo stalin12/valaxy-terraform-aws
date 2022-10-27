@@ -7,7 +7,7 @@ variable "associate_ip" {
 }
 
 variable "ami" {
-  default =  "ami-0f9fc25dd2506cf6d"
+  default =  "ami-08c40ec9ead489470"
 }
 variable "key_name" {
    default = "rtp-devops"

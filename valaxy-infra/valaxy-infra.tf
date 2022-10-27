@@ -21,14 +21,33 @@ module "ec2module" {
   subnet_id = module.my-subnet.public-subnet
 }
 
-output "master_public_ip" {
-   description = "The Public IP assigned to the slave instance"
+
+output "jenkins_master_public_ip" {
+   description = "The Public IP assigned to the Jenkins master instance"
    value = "${module.ec2module.master_public_ip}"
 }
 
-output "slave_public_ip" {
-   description = "The Public IP assigned to the slave instance"
+output "jenkins_slave_public_ip" {
+   description = "The Public IP assigned to the Jenkins slave instance"
    value = "${module.ec2module.slave_public_ip}"
+}
+
+module "k8scluster" {
+  source = "../modules/ec2"
+  vpc_security_group_ids = ["${module.security-group.security_group_public}"]
+  subnet_id = module.my-subnet.public-subnet
+  instance_type = "t2.medium"
+  ami = "ami-026b57f3c383c2eec"
+}
+
+output "k8s_master_public_ip" {
+   description = "The Public IP assigned to the K8s master instance"
+   value = "${module.k8scluster.master_public_ip}"
+}
+
+output "k8s_slave_public_ip" {
+   description = "The Public IP assigned to the k8s slave instance"
+   value = "${module.k8scluster.slave_public_ip}"
 }
 
 output "security_group_id" {
