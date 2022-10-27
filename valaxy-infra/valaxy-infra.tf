@@ -37,7 +37,7 @@ module "k8scluster" {
   vpc_security_group_ids = ["${module.security-group.security_group_public}"]
   subnet_id = module.my-subnet.public-subnet
   instance_type = "t2.medium"
-  ami = "ami-026b57f3c383c2eec"
+  ami = "ami-0149b2da6ceec4bb0"
 }
 
 output "k8s_master_public_ip" {
